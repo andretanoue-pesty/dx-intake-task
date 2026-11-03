@@ -1,0 +1,4 @@
+interface:
+  display_name: "DX Asana Intake"
+  short_description: "Create DX Operations Asana tasks and workstreams"
+  default_prompt: "Use $dx-asana-intake to file this DX website request in Asana. Ask me for anything missing before creating it."
