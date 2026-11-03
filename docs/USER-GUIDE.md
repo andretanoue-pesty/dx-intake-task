@@ -25,25 +25,31 @@ You need:
 
 ## Install
 
-1. Get the skill folder. Either clone the repository, or download it:
+You don't need to use a terminal or write any code. Pick the path that matches your situation.
 
-   ```bash
-   git clone https://github.com/andretanoue-pesty/dx-intake-task.git
-   ```
+### Option A: from the plugin library (once it is published)
 
-   The skill is in `skills/dx-asana-intake/`.
+1. Open your AI assistant's plugin or library page (on claude.ai, look for **Plugins**).
+2. Search for **dx-asana-intake** and click **Install**.
+3. If the page says the plugin is waiting for approval, ask your DX owner to approve it.
+4. Start a new chat. The skill is now available.
 
-2. Install it into your assistant's skills folder.
+### Option B: for the test group, before it is published
 
-   - **Codex:** ask Codex to install it, using the skill installer:
+Your DX owner will send you a ZIP file of the skill. Then:
 
-     ```text
-     Use $skill-installer to install skills/dx-asana-intake from andretanoue-pesty/dx-intake-task.
-     ```
+1. Save the ZIP file somewhere you can find it, such as your Downloads folder.
+2. Unzip it. You should see a folder called `dx-intake-task` with a folder named `skills` inside.
+3. Give the ZIP file, or the `skills/dx-asana-intake` folder inside it, to your DX owner or IT contact and ask them to install it in your assistant. Installing a skill differs by tool, so use the steps your assistant's documentation gives for "adding a skill folder".
+4. Start a new chat, so the assistant loads the skill.
 
-   - **Other assistants:** copy the `skills/dx-asana-intake/` folder into the skills directory your assistant reads (check its documentation for the location). Keep the folder structure as it is, with `SKILL.md`, `references/` and `agents/` together.
+If you use Codex, you can also ask it to install the skill for you:
 
-3. Start a new session or turn, so the assistant loads the skill.
+```text
+Use $skill-installer to install skills/dx-asana-intake from andretanoue-pesty/dx-intake-task.
+```
+
+Codex may ask you to sign in to GitHub the first time. Sign in with your own GitHub account, which needs access to this repository.
 
 ## Confirm your Asana setup
 
