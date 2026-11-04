@@ -68,7 +68,7 @@ Rules for stages:
 
 - Copy the dependencies exactly as the live template has them, whatever this table says. If the template has none for a task, set none.
 - Team: use the template's Team. Override only when the user says who will do the work.
-- Every stage gets the same Client, Task Type and Priority as the parent, the configured assignee, the Backlog section, and no estimate, due date or DX Sprint. The feedback rounds get the same.
+- Every stage gets the same Client, Task Type and Priority as the parent, the configured assignee, the Backlog section, and no estimate, due date or Sprint. The feedback rounds get the same.
 - The feedback rounds are children of the new Design stage. Create them with parent set to the new Design task's GID.
 - Replace placeholders in each stage's wording and delete lines that do not apply. Leave "executor confirms" lines as they are.
 - When Dev and pSEO have separate deliverables, create "Implement [deliverable] (Dev)" and "Implement [deliverable] (pSEO)", both waiting on approval, and make QA wait for both. Say in each handoff which one the other waits for. Mention the split in the draft.

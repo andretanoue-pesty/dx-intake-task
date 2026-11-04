@@ -38,21 +38,21 @@ Decide in this order:
 
 Simple Request and Delivery Workstream are formats. They do not replace Task Type. QA is a Team, never a Task Type.
 
-## Step 2: pre-flight check
+## Step 2: live lookup and pre-flight check
 
-Run once per session, before creating or changing anything.
+Run once per session, before creating or changing anything. Follow `live_lookup` in [config.json](references/config.json).
 
-1. Read the source Simple Request template (`source_templates.simple_request` in config.json) with only the custom field names and GIDs.
-2. Compare them with `custom_fields` in config.json.
-3. If they match, continue.
-4. If a field is new, missing or renamed, read the live project custom field settings for the DX project (`project.gid`) and their enum options. Use the live values, and tell the user the config is out of date.
-5. If the user names a client that is not in `clients` in config.json, read the live Client options the same way before saying it does not exist.
-6. Known pending change: a `[SETUP]` task was planned to replace Priority, Sprint and Estimated Effort with shared fields and add a native Estimated time field. Check whether this has been applied. Until it is confirmed, use the fields in config.json. Once confirmed, fill Estimated time only when the requester gives hours and minutes, and never convert effort ranges into hours.
-7. If the check cannot run, stop and tell the user. Do not guess GIDs.
+1. Read the DX project (`project.gid`) with its custom field settings and enum options, including the section list.
+2. For each field in `custom_fields`, find it by its exact `name` (Team, Task Type, Client, Priority, Estimated Effort, Sprint). For each option, find it by its exact name. Use the live GIDs for every write.
+3. Find the Backlog section by exact name. Do not use the TEMPLATES section.
+4. If a field or option name is missing, stop and tell the user. Do not guess a GID.
+5. If a live GID differs from config.json, use the live value and tell the user config.json needs updating.
+6. If the live read fails, stop and tell the user. Only if the user explicitly agrees, use the GIDs in config.json, and say in the report that they were not checked live.
+7. If the user names a client not in `clients`, check the live Client options before saying it does not exist.
 
 ## Step 3: search for an existing task
 
-Search by the main keywords, the client prefix or any Gmail thread ID, open tasks only, limit 10. Search the DX project too. If a match exists, use "Existing tasks" in the chosen reference and do not create anything.
+Search by the main keywords, the client prefix or any Gmail thread ID, open tasks only, limit 10. Search the DX project too. Do not rely on a section filter: it has been ignored. Check each result's project and section membership yourself, and count only tasks in DX. If a match exists, use "Existing tasks" in the chosen reference and do not create anything.
 
 ## Step 4: collect what is missing
 
@@ -69,7 +69,7 @@ Create the task (or parent, then stages) with the capabilities in [asana-capabil
 - Assignee and section from `assignee` and `project.backlog_section_gid` in config.json.
 - Project `project.gid`.
 - Client, Team, Task Type and Priority with option GIDs.
-- No Estimated Effort, DX Sprint or due date unless the user gave the value.
+- No Estimated Effort, Sprint or due date unless the user gave the value.
 
 Create in small batches and check for duplicates after each batch.
 
@@ -79,7 +79,7 @@ Read each task back and compare it with what you intended. Fix any mismatch befo
 
 1. Task links and the template used, with one sentence on why.
 2. Fields you set.
-3. Fields you left empty on purpose (Estimated Effort, DX Sprint, due date) and why.
+3. Fields you left empty on purpose (Estimated Effort, Sprint, due date) and why.
 4. Anything you assumed (a proposed Priority, a guessed Team, a missing prefix), so the user can correct it.
 5. Dependencies you set, or could not set.
 6. A reminder that the creator follows up until the assignee confirms the receiving owner.
@@ -90,7 +90,7 @@ Read each task back and compare it with what you intended. Fix any mismatch befo
 - Do not create a duplicate. Search first.
 - Do not create tasks in any other project, and do not add new tasks to other team backlogs. Existing tasks keep their current projects.
 - Do not edit, complete or assign the source template tasks.
-- Do not set Estimated Effort, DX Sprint or the due date unless the user gave the value.
+- Do not set Estimated Effort, Sprint or the due date unless the user gave the value.
 - Do not put Dev corrections under a QA task.
 - Do not leave bracket placeholders in a created task. Ask for the missing detail first.
 - Do not write em dashes, en dashes, emojis or filler into task text.

@@ -1,11 +1,16 @@
 {
-  "_about": "DX Operations Asana IDs and routing data. This is the only file that holds workspace-specific values. To point the skill at another Asana workspace or project, copy this file, replace the values, and keep the same keys. Verified against the live templates on 2026-10-27; live Asana wins on any conflict.",
-  "verified": "2026-10-27",
+  "_about": "DX Operations Asana IDs and routing data. The skill looks up custom field and option IDs live, by name, at the start of each session (see live_lookup). The GIDs below are a fallback and a reference for the maintainer. To point the skill at another Asana project, copy this file and replace the values, keeping the same keys.",
+  "verified": "2026-11-04",
   "project": {
     "name": "DX Operations - Website Maintenance & Improvements",
     "gid": "1219828023221466",
     "board_url": "https://app.asana.com/1/1111178867240151/project/1219828023221466/board/1219828023221482",
-    "backlog_section_gid": "1219828023221491"
+    "backlog_section_gid": "1219828023221491",
+    "templates_section": {
+      "name": "TEMPLATES [DO NOT DELETE]",
+      "gid": "1220063095037382",
+      "rule": "Holds the templates. Never create or move tasks here."
+    }
   },
   "assignee": {
     "name": "Andre Tanoue",
@@ -20,7 +25,8 @@
   "custom_fields": {
     "client": {
       "gid": "1213128780071580",
-      "note": "Option GIDs are in clients below."
+      "note": "Option GIDs are in clients below.",
+      "name": "Client"
     },
     "team": {
       "gid": "1219827917639837",
@@ -29,8 +35,10 @@
         "SEO/pSEO": "1219827917639839",
         "Dev": "1219827917639840",
         "Design": "1219827917639841",
-        "QA": "1219827917639842"
-      }
+        "QA": "1219827917639842",
+        "Copy/CRO": "1220024640761883"
+      },
+      "name": "Team"
     },
     "task_type": {
       "gid": "1219828023230235",
@@ -40,86 +48,264 @@
         "Enhancement / New Request": "1219828023230238",
         "Content Update": "1219828023230239",
         "Routine Maintenance": "1219828023230240"
-      }
+      },
+      "name": "Task Type"
     },
     "priority": {
-      "gid": "1219828023230218",
+      "name": "Priority",
+      "gid": "1213352158608619",
+      "status": "Shared field, confirmed 2026-11-04. Replaced the DX-only Priority field.",
       "options": {
-        "Critical": "1219828023230219",
-        "High": "1219828023230220",
-        "Medium": "1219828023230221",
-        "Low": "1219828023230222"
+        "Critical": "1213428012081054",
+        "High": "1213352158608620",
+        "Medium": "1213352158608621",
+        "Low": "1213352158608622"
       }
     },
     "estimated_effort": {
-      "gid": "1219828023230226",
-      "status": "Local field. Being replaced by the native Estimated time field after the pending [SETUP] change. Check before use.",
+      "name": "Estimated Effort",
+      "gid": "1212901663561815",
+      "status": "Shared field, confirmed 2026-11-04. Replaced the DX-only Estimated Effort field and the planned native Estimated time field.",
+      "rule": "Leave empty unless the requester gives an estimate. Map a stated estimate to the nearest range or minute option. Never invent hours or convert ranges into hours.",
       "options": {
-        "Up to 1 hour": "1219885340237191",
-        "Over 1-2 hours": "1219885340237192",
-        "Over 2-4 hours": "1219885340237193",
-        "Over 4-8 hours": "1219885340237194",
-        "Over 8 hours": "1219885340237195"
+        "Up to 1h": "1219889995728429",
+        "Over 1–2h": "1219889995728430",
+        "Over 2–4h": "1219889995728431",
+        "Over 4–8h": "1219889995728432",
+        "Over 8h": "1219889995728433",
+        "10 min": "1220046420980072",
+        "15 min": "1220046420980073",
+        "20 min": "1220046420980074",
+        "25 min": "1220046420980075",
+        "30 min": "1220046420980076",
+        "35 min": "1220046420980077",
+        "40 min": "1220046420980078",
+        "45 min": "1220046420980079"
       },
-      "disabled_options_do_not_use": ["XS", "S", "M", "L", "XL"]
+      "legacy_disabled_do_not_use": [
+        "Small (<4 hours)",
+        "Medium (4-16 hours)",
+        "Large (16+ hours)",
+        "Requires Scoping",
+        "Default"
+      ]
     },
-    "estimated_time_native": {
-      "gid": "1207485061591547",
-      "status": "Planned. Hours and minutes. Not applied as of 2026-10-27.",
-      "rule": "Fill only when the requester gives hours and minutes. Never convert effort ranges into hours."
-    },
-    "dx_sprint": {
-      "gid": "1219954349561793",
+    "sprint": {
+      "name": "Sprint",
+      "gid": "1213021108622901",
+      "status": "Shared field, confirmed 2026-11-04. Replaced the DX Sprint field and the text Sprint field.",
+      "rule": "Leave empty at intake. Set only when the requester names a sprint that exists in this field.",
       "options": {
-        "Sprint 28 2026": "1219954349561794"
+        "Sprint 28 2026": "1219652702032245",
+        "Sprint 29 2026": "1219981015952706",
+        "Sprint 30 2026": "1220102760294807",
+        "No Sprint": "1216964030752220",
+        "Unassigned": "1213041070397281"
       }
-    },
-    "sprint_text": {
-      "gid": "1219827917639846",
-      "rule": "Leave empty."
     }
   },
   "clients": [
-    { "name": "Allen Pest Management", "prefix": null, "gid": "1219664560543412" },
-    { "name": "BHB Pest Elimination", "prefix": "[BHB]", "gid": "1215945912248678" },
-    { "name": "Brandley Pest Control", "prefix": "[B]", "gid": "1213128780071606" },
-    { "name": "California Mobility", "prefix": "[CM]", "gid": "1213128780071583" },
-    { "name": "ClearDefense Pest Control", "prefix": "[CD]", "gid": "1213128780071612" },
-    { "name": "Corky's Pest Control", "prefix": "[C]", "gid": "1213128780071586" },
-    { "name": "Diamond IT", "prefix": "[D]", "gid": "1213128780071591" },
-    { "name": "EarthRite Pest Control", "prefix": "[ER]", "gid": "1213128780071608" },
-    { "name": "EcoForce Pest Management", "prefix": "[EF]", "gid": "1215492738937221" },
-    { "name": "Friends & Family Home Care", "prefix": "[FF]", "gid": "1213128780071605" },
-    { "name": "Green Home Pest Control", "prefix": null, "gid": "1213128780071607" },
-    { "name": "Green Shield Pest Pros", "prefix": "[GS]", "gid": "1213456366602939" },
-    { "name": "GreenShield Home & Pest Solutions", "prefix": "[GSH]", "gid": "1213799327553337" },
-    { "name": "Healthy Home Termite & Pest Control", "prefix": "[HH]", "gid": "1213128780071600" },
-    { "name": "Holper's Pest & Animal Solutions", "prefix": "[H]", "gid": "1213128780071602" },
-    { "name": "Kentucky Bourbon Trail", "prefix": null, "gid": "1213456366602942" },
-    { "name": "Keystone Technology Consultants", "prefix": "[KS]", "gid": "1213128780071597" },
-    { "name": "Kilter Termite and Pest Control", "prefix": "[KT]", "gid": "1216966387731886" },
-    { "name": "Kodiak Pest Control", "prefix": "[K]", "gid": "1213128780071610" },
-    { "name": "LaJaunie's Pest Control", "prefix": "[L]", "gid": "1213128780071582" },
-    { "name": "Magic City Pest Control", "prefix": "[MC]", "gid": "1213128780071595" },
-    { "name": "Native Pest Management", "prefix": "[NP]", "gid": "1213128780071588" },
-    { "name": "Neighborly Pest Management", "prefix": null, "gid": "1214293236979268" },
-    { "name": "Nextgen Pest Solutions", "prefix": "[NG]", "gid": "1213128780071594" },
-    { "name": "Official Pest Prevention", "prefix": "[O]", "gid": "1213128780071587" },
-    { "name": "PCI Pest Control", "prefix": null, "gid": "1213128780071593" },
-    { "name": "Pest Pros of Michigan", "prefix": "[PPM]", "gid": "1213128780071589" },
-    { "name": "Pest Services Company", "prefix": "[PSC]", "gid": "1216757935560715" },
-    { "name": "Pfitzer Pest Control", "prefix": null, "gid": "1213128780071603" },
-    { "name": "Reliant", "prefix": "[R]", "gid": "1213128780071611" },
-    { "name": "Rigo Pest Prevention", "prefix": "[RIG]", "gid": "1213829869909575" },
-    { "name": "Round the Clock Pest Services (Pest-R-Us)", "prefix": "[RTC]", "gid": "1213128780071613" },
-    { "name": "Rowland Pest Management", "prefix": "[RP]", "gid": "1213128780071609" },
-    { "name": "Sage Pest Control", "prefix": "[SAG]", "gid": "1213512953774369" },
-    { "name": "Smart Solutions", "prefix": "[SS]", "gid": "1213128780071596" },
-    { "name": "SodLawn", "prefix": "[SL]", "gid": "1213128780071604" },
-    { "name": "Thrasher Pest Control", "prefix": "[TH]", "gid": "1213128780071601" },
-    { "name": "TK", "prefix": null, "gid": "1213166574514167" },
-    { "name": "Wayne's Pest Control", "prefix": "[W]", "gid": "1213128780071581" },
-    { "name": "All / Multi Clients", "prefix": "[Multi-Client]", "gid": "1213618380373870" }
+    {
+      "name": "Allen Pest Management",
+      "prefix": null,
+      "gid": "1219664560543412"
+    },
+    {
+      "name": "BHB Pest Elimination",
+      "prefix": "[BHB]",
+      "gid": "1215945912248678"
+    },
+    {
+      "name": "Brandley Pest Control",
+      "prefix": "[B]",
+      "gid": "1213128780071606"
+    },
+    {
+      "name": "California Mobility",
+      "prefix": "[CM]",
+      "gid": "1213128780071583"
+    },
+    {
+      "name": "ClearDefense Pest Control",
+      "prefix": "[CD]",
+      "gid": "1213128780071612"
+    },
+    {
+      "name": "Corky's Pest Control",
+      "prefix": "[C]",
+      "gid": "1213128780071586"
+    },
+    {
+      "name": "Diamond IT",
+      "prefix": "[D]",
+      "gid": "1213128780071591"
+    },
+    {
+      "name": "EarthRite Pest Control",
+      "prefix": "[ER]",
+      "gid": "1213128780071608"
+    },
+    {
+      "name": "EcoForce Pest Management",
+      "prefix": "[EF]",
+      "gid": "1215492738937221"
+    },
+    {
+      "name": "Friends & Family Home Care",
+      "prefix": "[FF]",
+      "gid": "1213128780071605"
+    },
+    {
+      "name": "Green Home Pest Control",
+      "prefix": null,
+      "gid": "1213128780071607"
+    },
+    {
+      "name": "Green Shield Pest Pros",
+      "prefix": "[GS]",
+      "gid": "1213456366602939"
+    },
+    {
+      "name": "GreenShield Home & Pest Solutions",
+      "prefix": "[GSH]",
+      "gid": "1213799327553337"
+    },
+    {
+      "name": "Healthy Home Termite & Pest Control",
+      "prefix": "[HH]",
+      "gid": "1213128780071600"
+    },
+    {
+      "name": "Holper's Pest & Animal Solutions",
+      "prefix": "[H]",
+      "gid": "1213128780071602"
+    },
+    {
+      "name": "Kentucky Bourbon Trail",
+      "prefix": null,
+      "gid": "1213456366602942"
+    },
+    {
+      "name": "Keystone Technology Consultants",
+      "prefix": "[KS]",
+      "gid": "1213128780071597"
+    },
+    {
+      "name": "Kilter Termite and Pest Control",
+      "prefix": "[KT]",
+      "gid": "1216966387731886"
+    },
+    {
+      "name": "Kodiak Pest Control",
+      "prefix": "[K]",
+      "gid": "1213128780071610"
+    },
+    {
+      "name": "LaJaunie's Pest Control",
+      "prefix": "[L]",
+      "gid": "1213128780071582"
+    },
+    {
+      "name": "Magic City Pest Control",
+      "prefix": "[MC]",
+      "gid": "1213128780071595"
+    },
+    {
+      "name": "Native Pest Management",
+      "prefix": "[NP]",
+      "gid": "1213128780071588"
+    },
+    {
+      "name": "Neighborly Pest Management",
+      "prefix": null,
+      "gid": "1214293236979268"
+    },
+    {
+      "name": "Nextgen Pest Solutions",
+      "prefix": "[NG]",
+      "gid": "1213128780071594"
+    },
+    {
+      "name": "Official Pest Prevention",
+      "prefix": "[O]",
+      "gid": "1213128780071587"
+    },
+    {
+      "name": "PCI Pest Control",
+      "prefix": null,
+      "gid": "1213128780071593"
+    },
+    {
+      "name": "Pest Pros of Michigan",
+      "prefix": "[PPM]",
+      "gid": "1213128780071589"
+    },
+    {
+      "name": "Pest Services Company",
+      "prefix": "[PSC]",
+      "gid": "1216757935560715"
+    },
+    {
+      "name": "Pfitzer Pest Control",
+      "prefix": null,
+      "gid": "1213128780071603"
+    },
+    {
+      "name": "Reliant",
+      "prefix": "[R]",
+      "gid": "1213128780071611"
+    },
+    {
+      "name": "Rigo Pest Prevention",
+      "prefix": "[RIG]",
+      "gid": "1213829869909575"
+    },
+    {
+      "name": "Round the Clock Pest Services (Pest-R-Us)",
+      "prefix": "[RTC]",
+      "gid": "1213128780071613"
+    },
+    {
+      "name": "Rowland Pest Management",
+      "prefix": "[RP]",
+      "gid": "1213128780071609"
+    },
+    {
+      "name": "Sage Pest Control",
+      "prefix": "[SAG]",
+      "gid": "1213512953774369"
+    },
+    {
+      "name": "Smart Solutions",
+      "prefix": "[SS]",
+      "gid": "1213128780071596"
+    },
+    {
+      "name": "SodLawn",
+      "prefix": "[SL]",
+      "gid": "1213128780071604"
+    },
+    {
+      "name": "Thrasher Pest Control",
+      "prefix": "[TH]",
+      "gid": "1213128780071601"
+    },
+    {
+      "name": "TK",
+      "prefix": null,
+      "gid": "1213166574514167"
+    },
+    {
+      "name": "Wayne’s Pest Control",
+      "prefix": "[W]",
+      "gid": "1213128780071581",
+      "note": "Live name uses a curly apostrophe. Current DX tasks use [WA], not [W]. Confirm the prefix with the owner before using it."
+    },
+    {
+      "name": "All / Multi Clients",
+      "prefix": "[Multi-Client]",
+      "gid": "1213618380373870"
+    }
   ],
   "client_rules": {
     "prefix_null": "The team has not given a prefix. Ask the user before naming the task.",
@@ -128,15 +314,84 @@
   },
   "delivery_template": {
     "stages": [
-      { "key": "scope", "title": "Confirm scope for [deliverable]", "template_gid": "1219827792979267", "team": "Account Management", "waits_for": [] },
-      { "key": "content", "title": "Prepare content for [deliverable]", "template_gid": "1219827792979268", "team": "SEO/pSEO", "waits_for": ["scope"] },
-      { "key": "design", "title": "Design [deliverable]", "template_gid": "1219827792979269", "team": "Design", "waits_for": ["scope"] },
-      { "key": "feedback_1", "title": "Client feedback round #1", "template_gid": "1219914837215611", "team": "Design", "parent": "design", "waits_for": [] },
-      { "key": "feedback_2", "title": "Client feedback round #2", "template_gid": "1219914835361758", "team": "Design", "parent": "design", "waits_for": [] },
-      { "key": "approval", "title": "Obtain approval for [deliverable]", "template_gid": "1219827792979270", "team": "Account Management", "waits_for": ["content", "design"] },
-      { "key": "implement", "title": "Implement [deliverable]", "template_gid": "1219827792979271", "team": "Dev", "waits_for": ["approval"] },
-      { "key": "qa", "title": "QA [deliverable]", "template_gid": "1219827792979272", "team": "QA", "waits_for": ["implement"] },
-      { "key": "launch", "title": "Launch and verify [deliverable]", "template_gid": "1219827788621985", "team": "Dev", "waits_for": ["qa"] }
+      {
+        "key": "scope",
+        "title": "Confirm scope for [deliverable]",
+        "template_gid": "1219827792979267",
+        "team": "Account Management",
+        "waits_for": []
+      },
+      {
+        "key": "content",
+        "title": "Prepare content for [deliverable]",
+        "template_gid": "1219827792979268",
+        "team": "SEO/pSEO",
+        "waits_for": [
+          "scope"
+        ]
+      },
+      {
+        "key": "design",
+        "title": "Design [deliverable]",
+        "template_gid": "1219827792979269",
+        "team": "Design",
+        "waits_for": [
+          "scope"
+        ]
+      },
+      {
+        "key": "feedback_1",
+        "title": "Client feedback round #1",
+        "template_gid": "1219914837215611",
+        "team": "Design",
+        "parent": "design",
+        "waits_for": []
+      },
+      {
+        "key": "feedback_2",
+        "title": "Client feedback round #2",
+        "template_gid": "1219914835361758",
+        "team": "Design",
+        "parent": "design",
+        "waits_for": []
+      },
+      {
+        "key": "approval",
+        "title": "Obtain approval for [deliverable]",
+        "template_gid": "1219827792979270",
+        "team": "Account Management",
+        "waits_for": [
+          "content",
+          "design"
+        ]
+      },
+      {
+        "key": "implement",
+        "title": "Implement [deliverable]",
+        "template_gid": "1219827792979271",
+        "team": "Dev",
+        "waits_for": [
+          "approval"
+        ]
+      },
+      {
+        "key": "qa",
+        "title": "QA [deliverable]",
+        "template_gid": "1219827792979272",
+        "team": "QA",
+        "waits_for": [
+          "implement"
+        ]
+      },
+      {
+        "key": "launch",
+        "title": "Launch and verify [deliverable]",
+        "template_gid": "1219827788621985",
+        "team": "Dev",
+        "waits_for": [
+          "qa"
+        ]
+      }
     ],
     "note": "Copy dependencies exactly as the live template has them. The table is a dated copy. If the live template differs, follow the live template and say so in the report."
   },
@@ -145,5 +400,14 @@
     "source_url": "https://app.asana.com/1/1111178867240151/project/1212774813674009",
     "build_qa_source_url": "https://app.asana.com/1/1111178867240151/project/1212774813674009/task/1212776039585781"
   },
-  "incident_policy_url": "https://www.notion.so/bananasmarketing/Incident-Severity-Response-Policy-2e64c23a2157805ab6f7ef6545782440?source=copy_link"
+  "incident_policy_url": "https://www.notion.so/bananasmarketing/Incident-Severity-Response-Policy-2e64c23a2157805ab6f7ef6545782440?source=copy_link",
+  "live_lookup": {
+    "when": "At the start of every session, before any write.",
+    "how": "Call get_project on project.gid with include_sections=true and opt_fields for custom_field_settings.custom_field.name, .gid, and .enum_options.name, .gid, .enabled.",
+    "match": "Find each custom field by its exact name in custom_fields.<key>.name. Find each option by its exact name. Use the live GIDs for every write.",
+    "sections": "Find the Backlog section by exact name 'Backlog' in the live section list. Do not use TEMPLATES [DO NOT DELETE].",
+    "missing": "If a field or option name is missing, stop and tell the user. Do not guess a GID.",
+    "drift": "If live GIDs differ from this file, use the live values and tell the user this file needs updating.",
+    "fallback": "If the live read fails, the skill may use the GIDs below, but must say so in the report."
+  }
 }

@@ -23,6 +23,7 @@ Avoid preview or dry-run variants of these tools, such as `*_preview` names. Cre
 - **Comments are permanent.** Comments may not be editable or deletable through the connector. If one is wrong, post a new comment that says it replaces the earlier one.
 - **Dependencies.** Set them after the tasks exist, using real GIDs. "Waits for" means the task depends on the other.
 - **Batching and retries.** Create at most 3 tasks per call. An error or timeout can still have created tasks. Before retrying, read the parent's subtasks or search the project and retry only what is missing. A blind retry creates duplicates.
+- **Search filters.** A section filter was ignored in a live check. Verify each result's project and section membership before relying on the results.
 - **Limits.** The connector may be unable to change project fields, native templates, saved views, recurrence, the project overview or automation rules. If the work needs one of these, say so in the report and leave it to a person.
 
 ## Example create payload
@@ -36,7 +37,7 @@ One task: client EcoForce, Team Dev, Task Type Content Update, Priority Medium. 
   "project_id": "1219828023221466",
   "section_id": "1219828023221491",
   "html_notes": "<body>...</body>",
-  "custom_fields": "{\"1213128780071580\":\"1215492738937221\",\"1219827917639837\":\"1219827917639840\",\"1219828023230235\":\"1219828023230239\",\"1219828023230218\":\"1219828023230221\"}"
+  "custom_fields": "{\"1213128780071580\":\"1215492738937221\",\"1219827917639837\":\"1219827917639840\",\"1219828023230235\":\"1219828023230239\",\"1213352158608619\":\"1213352158608621\"}"
 }
 ```
 
