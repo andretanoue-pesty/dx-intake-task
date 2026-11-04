@@ -13,7 +13,7 @@ You describe a website request in plain language. The assistant:
 5. Creates the task only after you confirm.
 6. Reads the task back and reports what it set and what it left empty.
 
-It does not set Estimated Effort, DX Sprint or due dates unless you give those values.
+It does not set Estimated Effort, Sprint or due dates unless you give those values.
 
 ## Before you start
 
@@ -59,7 +59,7 @@ The skill's first step checks the Asana templates and fields it depends on. You 
 Use $dx-asana-intake to check the Asana setup for DX Operations.
 ```
 
-If the assistant reports that a field has changed, the IDs in `references/config.json` are out of date. Ask the DX owner to update that file, or tell the assistant to use the live values it reads from Asana.
+You don't need to change anything in your setup. At the start of each session, the skill looks up the current Asana fields by name, so changes to fields and options are picked up automatically. If it reports a missing field or option, tell your DX owner.
 
 ## Use it
 
@@ -111,7 +111,7 @@ After it creates or updates tasks, the assistant reports, in order:
 
 1. The task links and the template used, with one sentence on why.
 2. The fields it set.
-3. The fields it left empty on purpose (Estimated Effort, DX Sprint, due date) and why.
+3. The fields it left empty on purpose (Estimated Effort, Sprint, due date) and why.
 4. Anything it assumed, such as a proposed Priority, a guessed Team or a missing client prefix. Correct these if they're wrong.
 5. Dependencies it set, or couldn't set.
 6. A reminder that the creator follows up until the assignee confirms the receiving owner.

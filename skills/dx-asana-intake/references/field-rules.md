@@ -10,9 +10,8 @@ Values come from [config.json](config.json). Use option GIDs, never display name
 | Task Type | Incident = active service disruption or risk. Bug = behavior fails the agreed expectation. Enhancement / New Request = new capability or improvement. Content Update = bounded copy or asset change. Routine Maintenance = preventive or recurring upkeep or check. |
 | Team | The team that executes the work. Dev: WordPress, ACF, forms, plugins, hosting, integrations, code. SEO/pSEO: copy, schema, internal links, Airtable, Whalesync, programmatic pages. Design: UX, visual design, images. QA: testing and verification. Account Management: client follow-up, approvals, scope. |
 | Priority | Use what the requester states. A P1 incident is Critical. If nothing is stated, ask. If the user cannot say, set Medium and mark it as proposed in the report. |
-| Estimated Effort | Leave empty unless the requester gives an estimate. The executor confirms hours before work starts. Map a stated estimate to the nearest range. Never invent hours. |
-| Estimated time (native, after the pending change) | Fill only when the requester gives hours and minutes. Never convert effort ranges into hours. |
-| DX Sprint | Leave empty at intake. Set it only when the requester names a sprint that exists in the field. |
+| Estimated Effort | Shared field. Leave empty unless the requester gives an estimate. Map a stated estimate to the nearest range or minute option (10 to 45 min). The executor confirms hours before work starts. Never invent hours or convert ranges into hours. |
+| Sprint | Shared field. Leave empty at intake. Set it only when the requester names a sprint that exists in the field. |
 | Due date | Leave empty at intake. Put any requested deadline in CHANGES. The date is confirmed when the task moves to To Do. |
 | Followers | None by default. |
 
