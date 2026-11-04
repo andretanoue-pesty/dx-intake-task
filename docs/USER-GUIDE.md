@@ -38,9 +38,9 @@ You don't need to use a terminal or write any code. Pick the path that matches y
 
 Your DX owner will send you a ZIP file of the skill. Then:
 
-1. Save the ZIP file somewhere you can find it, such as your Downloads folder.
-2. Unzip it. You should see a folder called `dx-intake-task` with a folder named `skills` inside.
-3. Give the ZIP file, or the `skills/dx-asana-intake` folder inside it, to your DX owner or IT contact and ask them to install it in your assistant. Installing a skill differs by tool, so use the steps your assistant's documentation gives for "adding a skill folder".
+1. Save the file `dx-asana-intake.zip` somewhere you can find it, such as your Downloads folder. Do not unzip it.
+2. Upload the ZIP to your assistant's skill upload page, the place where it adds skills. If you can't find it, ask your DX owner where it is. Choose the ZIP file.
+3. If the page reports an error, check that you uploaded `dx-asana-intake.zip` and not a different file, then ask your DX owner for a fresh copy.
 4. Start a new chat, so the assistant loads the skill.
 
 If you use Codex, you can also ask it to install the skill for you:
